@@ -1,0 +1,11 @@
+body{
+    background-color: rgb(183, 226, 226);
+}
+
+#map {
+    
+        height: 80vh; /* Imposta l'altezza della mappa a tutta la finestra del browser */
+        width: 80%;  /* Imposta la larghezza della mappa a tutta la larghezza della finestra */
+    }
+    
+     
