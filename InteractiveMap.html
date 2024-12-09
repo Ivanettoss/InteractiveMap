@@ -12,6 +12,10 @@
 </head>
 <body>
 
+    
+		<h1>S.A.I.L. SMART AUTONOMOUS INTERACTIVE LOCALIZATION</h1>
+        
+
     <!-- Map Object -->
     <div id="map"></div>
 
@@ -34,7 +38,7 @@
         // Define two objects 
         var circle1 = L.circle([42.021378, 11.931883 ], {
             color: 'red',
-            fillColor: '#f03',
+            fillColor: '#red',
             radius: 50    // radious of the circle in meters 
         }).addTo(map);
 
@@ -43,6 +47,14 @@
             fillColor: '#blue',
             radius: 50 // radius of the circle in meters 
         }).addTo(map);
+
+        var circle3 = L.circle([ 42.017101, 11.890186], {
+            color: 'green',
+            fillColor: '#green',
+            radius: 50 // radius of the circle in meters 
+        }).addTo(map);
+
+
 
         // Define two pop up event 
 
@@ -67,6 +79,19 @@
         });
 
         circle2.on("mouseout", function() {
+        map.closePopup(); 
+    });
+
+
+    circle3.on("mouseover", function(e){
+                var latlng = e.latlng;  
+                var popup3 = L.popup()
+                .setLatLng(latlng)   
+                .setContent('Buoy 3: ' + latlng)  
+                .openOn(map);       
+        });
+
+        circle3.on("mouseout", function() {
         map.closePopup(); 
     });
 

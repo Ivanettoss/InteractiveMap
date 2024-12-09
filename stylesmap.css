@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(183, 226, 226);
+    background-color:#f0f0f0;
 }
 
 #map {
@@ -7,5 +7,18 @@ body{
         height: 80vh; /* Imposta l'altezza della mappa a tutta la finestra del browser */
         width: 80%;  /* Imposta la larghezza della mappa a tutta la larghezza della finestra */
     }
+
+
+h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(69, 69, 112);
+}
+
+/* Animazione che simula il movimento dell'acqua */
+
+
+
+
+
     
      
