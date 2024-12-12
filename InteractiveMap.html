@@ -11,19 +11,22 @@
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 </head>
 <body>
-
+        <!-- user buoy creation js-->
+        <script src="userInteraction.js" ></script>
     
 		<h1>S.A.I.L. SMART AUTONOMOUS INTERACTIVE LOCALIZATION</h1>
         
-
+    <div id="core">
     <!-- Map Object -->
     <div id="map"></div>
+    <button id="newBuoy", onClick="insertBuoyData()">Inserisci nuova boa</button>
+    </div>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-
+  
 
     <script>
 
@@ -97,9 +100,6 @@
 
 
         
-
-
-
     </script>
 
 </body>

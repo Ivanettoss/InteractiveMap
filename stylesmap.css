@@ -8,6 +8,28 @@ body{
         width: 80%;  /* Imposta la larghezza della mappa a tutta la larghezza della finestra */
     }
 
+#core {
+    display:flex ;
+    gap: 20px;
+    align-items:center;
+}
+
+#newBuoy {
+        padding: 15px 30px; /* Aumenta la dimensione del bottone */
+        background-color: #83c6cd; /* Sfondo azzurro */
+        color: white; /* Colore del testo bianco */
+        border: none;
+        border-radius: 25px; /* Angoli arrotondati */
+        font-size: 16px; /* Dimensione del testo */
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease; /* Aggiungi transizione per l'effetto hover */
+    }
+    
+    #newBuoy:hover {
+        background-color: rgb(69, 69, 112); /* Colore di sfondo più scuro al passaggio del mouse */
+        transform: scale(1.1); /* Ingrandisce leggermente il bottone */
+    }
+    
 
 h1{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
