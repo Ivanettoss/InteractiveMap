@@ -38,7 +38,7 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Define two objects 
+        // Define 3 objects 
         var circle1 = L.circle([42.021378, 11.931883 ], {
             color: 'red',
             fillColor: '#red',
@@ -59,7 +59,7 @@
 
 
 
-        // Define two pop up event 
+        // Define  pop up event on object
 
         circle1.on("mouseover", function(e){
             var latlng = e.latlng;  // get the lat and long of the device 
@@ -99,8 +99,110 @@
     });
 
 
-        
-    </script>
+    
+    var buoyIcon = L.icon({
+        iconUrl: 'icon/dynamicBuoy.png',
+        iconSize: [25, 25],
+        iconAnchor: [0, 0],
+        popupAnchor: [0, 0],
+});
+     var markerBuoy = L.marker([42.026439, 11.912144], {icon: buoyIcon}).addTo(map);
 
+     // add a popup on the marker
+     markerBuoy.on("mouseover", function(e){
+                var latlng = e.latlng;  
+                var popup4 = L.popup()
+                .setLatLng(latlng)   
+                .setContent('StaticBuoy: ' + latlng)  
+                .openOn(map);       
+        });
+
+        markerBuoy.on("mouseout", function() {
+        map.closePopup(); 
+        });
+
+// define objects with personalized icon 
+var myIcon = L.icon({
+   iconUrl: 'icon/sailingBoat.png',
+   iconSize: [30, 25],
+   iconAnchor: [0, 0],
+   popupAnchor: [0, 0],
+});
+
+var marker1 = L.marker([42.035648, 11.882662], {icon: myIcon}).addTo(map);
+// add a popup on the marker
+marker1.on("mouseover", function(e){
+           var latlng = e.latlng;  
+           var popup4 = L.popup()
+           .setLatLng(latlng)   
+           .setContent('SailBoat: ' + latlng)  
+           .openOn(map);       
+   });
+
+   marker1.on("mouseout", function() {
+   map.closePopup(); 
+});
+
+    boatSteps = [
+    [
+        [42.035648, 11.882662], // start
+        [42.045648, 11.892662],
+        [42.055648, 11.902662],
+        [42.065648, 11.912662],
+        [42.075648, 11.922662], 
+        [42.085648, 11.932662],
+        [42.095648, 11.942662], 
+        [42.105648, 11.952662],
+        [42.115648, 11.962662], 
+        [42.125648, 11.972662],
+        [42.135648, 11.982662], 
+        [42.145648, 11.992662], 
+        [42.155648, 12.002662], 
+        [42.165648, 12.012662], 
+        [42.175648, 12.022662], 
+        [42.185648, 12.032662], 
+        [42.195648, 12.042662], 
+        [42.205648, 12.052662], 
+        [42.215648, 12.062662], 
+        [42.225648, 12.072662], 
+        [42.235648, 12.082662], 
+        [42.017101, 11.890186]  // back to start
+    ]
+]
+
+
+
+// Animazione del marker
+function moveMarker(marker,newLat,newLong) {
+       setTimeout(function() {
+        marker1.setLatLng([newLat, newLong]);
+    }, 2000); 
+}
+
+function animation(marker,position){
+    for(let i=0;i<position.length;i++){
+
+        for(let j=0;j<position[i].length;j++){
+
+           let currentCoordinate=position[i][j]
+           console.log(currentCoordinate)
+           let currentLat=currentCoordinate[0]
+           let currentLong=currentCoordinate[1]
+
+           setTimeout(function () {
+                            moveMarker(marker, currentLat, currentLong);
+                        }, 2000);
+                    }
+                    
+                }
+    }
+
+
+
+
+ animation(marker1,boatSteps)
+
+    </script>
+   
 </body>
 </html>
