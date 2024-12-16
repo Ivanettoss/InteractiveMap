@@ -144,58 +144,59 @@ marker1.on("mouseover", function(e){
 });
 
     boatSteps = [
+    
     [
-        [42.035648, 11.882662], // start
-        [42.045648, 11.892662],
-        [42.055648, 11.902662],
-        [42.065648, 11.912662],
-        [42.075648, 11.922662], 
-        [42.085648, 11.932662],
-        [42.095648, 11.942662], 
-        [42.105648, 11.952662],
-        [42.115648, 11.962662], 
-        [42.125648, 11.972662],
-        [42.135648, 11.982662], 
-        [42.145648, 11.992662], 
-        [42.155648, 12.002662], 
-        [42.165648, 12.012662], 
-        [42.175648, 12.022662], 
-        [42.185648, 12.032662], 
-        [42.195648, 12.042662], 
-        [42.205648, 12.052662], 
-        [42.215648, 12.062662], 
-        [42.225648, 12.072662], 
-        [42.235648, 12.082662], 
-        [42.017101, 11.890186]  // back to start
-    ]
+    [42.035648, 11.882662],
+    [42.035926, 11.883140],
+    [42.036205, 11.883618],
+    [42.036483, 11.884096],
+    [42.036761, 11.884573],
+    [42.037039, 11.885050],
+    [42.037317, 11.885526],
+    [42.037595, 11.886002],
+    [42.037873, 11.886477],
+    [42.038150, 11.886952],
+    [42.038428, 11.887426],
+    [42.038705, 11.887900],
+    [42.038982, 11.888374],
+    [42.039259, 11.888847],
+    [42.039536, 11.889320],
+    [42.039813, 11.889792],
+    [42.040090, 11.890263],
+    [42.040367, 11.890734],
+    [42.040644, 11.891204],
+    [42.035648, 11.882662]  // Torna al punto di partenza
 ]
+    ]
 
 
 
-// Animazione del marker
-function moveMarker(marker,newLat,newLong) {
-       setTimeout(function() {
-        marker1.setLatLng([newLat, newLong]);
-    }, 2000); 
+
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function animation(marker,position){
-    for(let i=0;i<position.length;i++){
 
-        for(let j=0;j<position[i].length;j++){
+function moveMarker(marker, newLat, newLong) {
+    marker.setLatLng([newLat, newLong]);
+}
 
-           let currentCoordinate=position[i][j]
-           console.log(currentCoordinate)
-           let currentLat=currentCoordinate[0]
-           let currentLong=currentCoordinate[1]
 
-           setTimeout(function () {
-                            moveMarker(marker, currentLat, currentLong);
-                        }, 2000);
-                    }
-                    
-                }
+async function animation(marker, position) {
+   
+    for (let i = 0; i < position.length; i++) {
+        for (let j = 0; j < position[i].length; j++) {
+            let currentCoordinate = position[i][j];
+            console.log(currentCoordinate);
+            let currentLat = currentCoordinate[0];
+            let currentLong = currentCoordinate[1];
+
+            moveMarker(marker, currentLat, currentLong);
+            await sleep(2000); // Pausa di 2 secondi tra i movimenti
+        }
     }
+}
 
 
 
