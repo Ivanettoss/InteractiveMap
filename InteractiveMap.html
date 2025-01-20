@@ -11,8 +11,9 @@
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 </head>
 <body>
-        <!-- user buoy creation js-->
+        <!-- user buoy creation and info js-->
         <script src="userInteraction.js" ></script>
+        <script src="buoyInfo.js"></script>
     
 		<h1>S.A.I.L. SMART AUTONOMOUS INTERACTIVE LOCALIZATION</h1>
         
@@ -20,6 +21,17 @@
     <!-- Map Object -->
     <div id="map"></div>
     <button id="newBuoy", onClick="insertBuoyData()">Inserisci nuova boa</button>
+
+        <div id="buoyInfo"  style="display: none;">
+                <p>BUOY DETAILS</p>
+               <tr>
+                <th>BUOY ID</th> <th>LATITUDE</th> <th>LONGITUDE</th>
+               </tr>
+               <tr>
+                <td id="buoyId"></td> <td id="lat"></td> <td id="long"></td>
+               </tr>
+            </table>
+        </div>
     </div>
 
     <!-- Leaflet JS -->
@@ -98,8 +110,20 @@
         map.closePopup(); 
     });
 
+    circle1.on("click", function(e) {
+            showBuoyInfo(1, e.latlng);
+        });
+
+        circle2.on("click", function(e) {
+            showBuoyInfo(2, e.latlng);
+        });
+
+        circle3.on("click", function(e) {
+            showBuoyInfo(3, e.latlng);
+        });
 
     
+
     var buoyIcon = L.icon({
         iconUrl: 'icon/dynamicBuoy.png',
         iconSize: [25, 25],

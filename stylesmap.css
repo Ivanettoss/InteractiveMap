@@ -14,6 +14,55 @@ body{
     align-items:center;
 }
 
+/* Stile base della tabella */
+#buoyDetails {
+    width: 100%;
+    border-collapse: collapse; /* Unisce i bordi delle celle */
+    margin: 20px 0; /* Aggiunge margine sopra e sotto la tabella */
+    background-color: #83a8cd;
+    border-radius: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Stile delle intestazioni (th) */
+#buoyDetails th {
+    background-color: #83a8cd; /* Colore di sfondo per le intestazioni */
+    font-weight: bold; /* Imposta il grassetto */
+    padding: 8px;
+    text-align: left; /* Allinea il testo a sinistra */
+    border-radius: 25px;
+}
+
+/* Stile delle celle (td) */
+#buoyDetails td {
+    padding: 8px;
+    border: 2px solid #ddd; /* Linee sottili di divisione */
+}
+
+/* Responsività: quando la larghezza dello schermo è inferiore a 600px */
+@media (max-width: 600px) {
+    #buoyDetails {
+        font-size: 14px; /* Riduce la dimensione del font per schermi piccoli */
+    }
+
+    #buoyDetails th, #buoyDetails td {
+        padding: 6px; /* Riduce l'imbottitura */
+    }
+    
+    /* Gestione della larghezza delle colonne per schermi piccoli */
+    #buoyDetails td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Cambia il colore di sfondo per una migliore leggibilità sui dispositivi mobili */
+    #buoyDetails th {
+        background-color: #dcdcdc; /* Colore di sfondo più scuro per le intestazioni */
+    }
+}
+
+
 #newBuoy {
         padding: 15px 30px; /* Aumenta la dimensione del bottone */
         background-color: #83c6cd; /* Sfondo azzurro */
