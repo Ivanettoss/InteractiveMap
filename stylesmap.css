@@ -1,43 +1,73 @@
 body{
     background-color:#d3dad9;
+    margin:0 
 }
 
 #map {
     
-        height: 80vh; /* Imposta l'altezza della mappa a tutta la finestra del browser */
-        width: 60%;  /* Imposta la larghezza della mappa a tutta la larghezza della finestra */
+        height: 100vh; /* Imposta l'altezza della mappa a tutta la finestra del browser */
+        width: 100vw;  /* Imposta la larghezza della mappa a tutta la larghezza della finestra */
+        z-index: 0;
     }
 
-#core {
-    display:flex ;
-    gap: 20px;
-    align-items:center;
+#sidebar{
+    height:100vh;
+    width: 100px;
+    background-color: rgba(245, 245, 245, 0.9);
+    z-index: 2;
+    top: 0;          
+    left: 0;  
+    overflow-y: auto; /* Rende la sidebar scrollabile se troppo lunga */
+    position: fixed;
+    display: flex;  /* Usa il layout Flexbox */
+    flex-direction: column;  /* Dispone gli elementi in colonna */
+    justify-content: space-evenly;  /* Distribuisce lo spazio equamente tra gli elementi */
+    padding: 20px;
+
 }
+
+#sidebar-objects{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;  /* Spazio uniforme tra gli elementi della lista */
+    height: 100%;  /* La lista prende tutta l'altezza disponibile della sidebar */
+}
+
+#sidebar-objects li {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.sidebar-icon{
+    width: 30px; /* Puoi modificare la dimensione delle icone */
+    height: auto;
+    cursor: pointer;
+}
+
+.sidebar-icon:hover {
+    transform: scale(1.2);
+}
+
 
 /* Stile base della tabella */
-#buoyDetails {
-    width: 100%;
+#buoyInfo {
+    width: 250px;
+    height: 300px;
     border-collapse: collapse; /* Unisce i bordi delle celle */
     margin: 20px 0; /* Aggiunge margine sopra e sotto la tabella */
-    background-color: #83a8cd;
-    border-radius: 25px;
+    background-color:#95A78D;
+    border-radius: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index:3;
+    position: absolute; /* O relative se la posizione non è assoluta */
+    bottom:60px; /* Aggiusta la posizione in alto */
+    right:20px; /* Aggiusta la distanza dalla sidebar, così non si sovrappone */
+    padding:5px;
 }
 
-/* Stile delle intestazioni (th) */
-#buoyDetails th {
-    background-color: #83a8cd; /* Colore di sfondo per le intestazioni */
-    font-weight: bold; /* Imposta il grassetto */
-    padding: 8px;
-    text-align: left; /* Allinea il testo a sinistra */
-    border-radius: 25px;
-}
-
-/* Stile delle celle (td) */
-#buoyDetails td {
-    padding: 8px;
-    border: 2px solid #ddd; /* Linee sottili di divisione */
-}
 
 /* Responsività: quando la larghezza dello schermo è inferiore a 600px */
 @media (max-width: 600px) {
@@ -80,12 +110,7 @@ body{
     }
     
 
-h1{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: rgb(69, 69, 112);
-}
 
-/* Animazione che simula il movimento dell'acqua */
 
 
 

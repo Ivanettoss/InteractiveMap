@@ -13,37 +13,38 @@
 <body>
         <!-- user buoy creation and info js-->
         <script src="userInteraction.js" ></script>
-        <script src="buoyInfo.js"></script>
+       
     
-		<h1>S.A.I.L. SMART AUTONOMOUS INTERACTIVE LOCALIZATION</h1>
         
     <div id="core">
     <!-- Map Object -->
     <div id="map"></div>
-    <button id="newBuoy", onClick="insertBuoyData()">Inserisci nuova boa</button>
+    <div id="sidebar">
+        <ul id="sidebar-objects" ul>
+            <li><img src="heart (2).png" alt="Feature 1" class="sidebar-icon" /></li>
+            <li><img src="heart (2).png" alt="Feature 1" class="sidebar-icon" /></li>
+            <li><img src="heart (2).png" alt="Feature 1" class="sidebar-icon" /></li>
+            <li><img src="heart (2).png" alt="Feature 1" class="sidebar-icon" /></li>
+        </ul>
+    </div>
 
         <div id="buoyInfo"  style="display: none;">
-                <p>BUOY DETAILS</p>
-               <tr>
-                <th>BUOY ID</th> <th>LATITUDE</th> <th>LONGITUDE</th>
-               </tr>
-               <tr>
-                <td id="buoyId"></td> <td id="lat"></td> <td id="long"></td>
-               </tr>
-            </table>
+                <p id="buoyId" ></p>
+                <p>Longitude: <span id="lat" > </p>
+                <p>Latitude: <span id="long" ></p>
         </div>
+        
     </div>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-  
-
     <script>
 
         // Inizialize the  map ([Long,Lat],zoom)
         var map = L.map('map').setView([42.030761, 11.909473],13);
+        map.zoomControl.remove();
 
         // Add a tile layer 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -52,8 +53,8 @@
 
         // Define 3 objects 
         var circle1 = L.circle([42.021378, 11.931883 ], {
-            color: 'red',
-            fillColor: '#red',
+            color: 'blue',
+            fillColor: '#rblue',
             radius: 50    // radious of the circle in meters 
         }).addTo(map);
 
@@ -64,8 +65,8 @@
         }).addTo(map);
 
         var circle3 = L.circle([ 42.017101, 11.890186], {
-            color: 'green',
-            fillColor: '#green',
+            color: 'blue',
+            fillColor: '#blue',
             radius: 50 // radius of the circle in meters 
         }).addTo(map);
 
@@ -77,7 +78,7 @@
             var latlng = e.latlng;  // get the lat and long of the device 
             var popup1 = L.popup()
             .setLatLng(latlng)   // set the Lat and Long of the popup
-            .setContent('Buoy 1: ' + latlng)  // Popup text
+            .setContent('Buoy 1')  // Popup text
             .openOn(map);        
     });
 
@@ -89,7 +90,7 @@
                 var latlng = e.latlng;  
                 var popup2 = L.popup()
                 .setLatLng(latlng)   
-                .setContent('Buoy 2: ' + latlng)  
+                .setContent('Buoy 2')  
                 .openOn(map);       
         });
 
@@ -101,8 +102,8 @@
     circle3.on("mouseover", function(e){
                 var latlng = e.latlng;  
                 var popup3 = L.popup()
-                .setLatLng(latlng)   
-                .setContent('Buoy 3: ' + latlng)  
+                .setLatLng(latlng)
+                .setContent('Buoy 3')  
                 .openOn(map);       
         });
 
@@ -115,6 +116,8 @@
         });
 
         circle2.on("click", function(e) {
+            console.log(e.latlng)
+
             showBuoyInfo(2, e.latlng);
         });
 
@@ -122,112 +125,10 @@
             showBuoyInfo(3, e.latlng);
         });
 
-    
-
-    var buoyIcon = L.icon({
-        iconUrl: 'icon/dynamicBuoy.png',
-        iconSize: [25, 25],
-        iconAnchor: [0, 0],
-        popupAnchor: [0, 0],
-});
-     var markerBuoy = L.marker([42.026439, 11.912144], {icon: buoyIcon}).addTo(map);
-
-     // add a popup on the marker
-     markerBuoy.on("mouseover", function(e){
-                var latlng = e.latlng;  
-                var popup4 = L.popup()
-                .setLatLng(latlng)   
-                .setContent('StaticBuoy: ' + latlng)  
-                .openOn(map);       
-        });
-
-        markerBuoy.on("mouseout", function() {
-        map.closePopup(); 
-        });
-
-// define objects with personalized icon 
-var myIcon = L.icon({
-   iconUrl: 'icon/sailingBoat.png',
-   iconSize: [30, 25],
-   iconAnchor: [0, 0],
-   popupAnchor: [0, 0],
-});
-
-var marker1 = L.marker([42.035648, 11.882662], {icon: myIcon}).addTo(map);
-// add a popup on the marker
-marker1.on("mouseover", function(e){
-           var latlng = e.latlng;  
-           var popup4 = L.popup()
-           .setLatLng(latlng)   
-           .setContent('SailBoat: ' + latlng)  
-           .openOn(map);       
-   });
-
-   marker1.on("mouseout", function() {
-   map.closePopup(); 
-});
-
-    boatSteps = [
-    
-    [
-    [42.035648, 11.882662],
-    [42.035926, 11.883140],
-    [42.036205, 11.883618],
-    [42.036483, 11.884096],
-    [42.036761, 11.884573],
-    [42.037039, 11.885050],
-    [42.037317, 11.885526],
-    [42.037595, 11.886002],
-    [42.037873, 11.886477],
-    [42.038150, 11.886952],
-    [42.038428, 11.887426],
-    [42.038705, 11.887900],
-    [42.038982, 11.888374],
-    [42.039259, 11.888847],
-    [42.039536, 11.889320],
-    [42.039813, 11.889792],
-    [42.040090, 11.890263],
-    [42.040367, 11.890734],
-    [42.040644, 11.891204],
-    [42.035648, 11.882662]  // Torna al punto di partenza
-]
-    ]
 
 
-
-
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-
-function moveMarker(marker, newLat, newLong) {
-    marker.setLatLng([newLat, newLong]);
-}
-
-
-async function animation(marker, position) {
-   
-    for (let i = 0; i < position.length; i++) {
-        for (let j = 0; j < position[i].length; j++) {
-            let currentCoordinate = position[i][j];
-            console.log(currentCoordinate);
-            let currentLat = currentCoordinate[0];
-            let currentLong = currentCoordinate[1];
-
-            moveMarker(marker, currentLat, currentLong);
-            await sleep(2000); // Pausa di 2 secondi tra i movimenti
-        }
-    }
-}
-
-
-
-
- animation(marker1,boatSteps)
 
     </script>
-   
+    <script src="buoyInfo.js"></script>
 </body>
 </html>
