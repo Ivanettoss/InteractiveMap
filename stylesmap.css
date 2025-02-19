@@ -12,7 +12,7 @@ body{
 
 #sidebar{
     height:100vh;
-    width: 100px;
+    width: 80px;
     background-color: rgba(245, 245, 245, 0.9);
     z-index: 2;
     top: 0;          
@@ -22,7 +22,7 @@ body{
     display: flex;  /* Usa il layout Flexbox */
     flex-direction: column;  /* Dispone gli elementi in colonna */
     justify-content: space-evenly;  /* Distribuisce lo spazio equamente tra gli elementi */
-    padding: 20px;
+    padding: 10px;
 
 }
 
@@ -36,16 +36,27 @@ body{
     height: 100%;  /* La lista prende tutta l'altezza disponibile della sidebar */
 }
 
+#sidebar-objects p{
+    font-size: 12px;
+}
+
 #sidebar-objects li {
     margin: 10px 0;
     text-align: center;
 }
 
 .sidebar-icon{
-    width: 30px; /* Puoi modificare la dimensione delle icone */
+    width: 20px; /* Puoi modificare la dimensione delle icone */
     height: auto;
     cursor: pointer;
 }
+
+.sidebar-button{
+    background: none; /* Rimuove il background del bottone */
+    border: none; /* Rimuove il bordo del bottone */
+    cursor: pointer;
+}
+
 
 .sidebar-icon:hover {
     transform: scale(1.2);
@@ -54,10 +65,8 @@ body{
 
 /* Stile base della tabella */
 #buoyInfo {
-    width: 250px;
+    width: 220px;
     height: 300px;
-    border-collapse: collapse; /* Unisce i bordi delle celle */
-    margin: 20px 0; /* Aggiunge margine sopra e sotto la tabella */
     background-color:#95A78D;
     border-radius: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -65,9 +74,74 @@ body{
     position: absolute; /* O relative se la posizione non è assoluta */
     bottom:60px; /* Aggiusta la posizione in alto */
     right:20px; /* Aggiusta la distanza dalla sidebar, così non si sovrappone */
-    padding:5px;
+    display: flex; /* Usa flexbox per centrare il contenuto */
+    justify-content: center; /* Centra l'immagine orizzontalmente */
+    align-items: center; /* Centra l'immagine verticalmente */
+    border: 3px solid lightblue;
+    text-align: center;
 }
 
+#buoyInfo h1{
+    font-size:16px;
+    }
+
+#buoyInfo h1 span{
+    color: #107E7D
+    font-size 15px;
+}
+
+#buoyInfo p {
+    margin: 0;
+    font-size: 15px; /* Riduce la dimensione del testo */
+    color: #000; /* Imposta il colore del testo se necessario */
+}
+
+#buoyInfo p span{
+    margin: 0;
+    font-size: 14px; /* Riduce la dimensione del testo */
+    color: #3359ef; /* Imposta il colore del testo se necessario */
+}
+
+
+#buoyInfo h1{
+font-size:16px;
+}
+
+#buoyInfo h1 span{
+    color: #3359ef;
+}
+#buoy-img {
+    width: 100%;
+    height: auto;
+    border-top: 3px solid lightblue;
+    border-bottom:3px solid lightblue ;
+    
+}
+
+#latlong-div{
+    text-align: left;
+    margin-left: 5px;
+}
+
+
+#close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none; /* Rimuove il background del bottone */
+    border: none; /* Rimuove il bordo del bottone */
+    padding: 0;
+    cursor: pointer;
+}
+
+#close-button img {
+    width: 20px; /* Imposta una larghezza per l'icona */
+    height: 20px; /* Imposta un'altezza per l'icona */
+}
+
+#close-button:hover img {
+    opacity: 0.7; /* Effetto hover sull'icona (ad esempio cambia l'opacità) */
+}
 
 /* Responsività: quando la larghezza dello schermo è inferiore a 600px */
 @media (max-width: 600px) {

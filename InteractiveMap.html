@@ -21,17 +21,44 @@
     <div id="map"></div>
     <div id="sidebar">
         <ul id="sidebar-objects" ul>
-            <li><img src="heart (2).png" alt="Feature 1" class="sidebar-icon" /></li>
-            <li><img src="heart (2).png" alt="Feature 1" class="sidebar-icon" /></li>
-            <li><img src="heart (2).png" alt="Feature 1" class="sidebar-icon" /></li>
-            <li><img src="heart (2).png" alt="Feature 1" class="sidebar-icon" /></li>
+            <li>
+               <button class="sidebar-button" onclick="insertBuoyData()"> 
+                <img src="icon/addBuoy.png" alt="Feature 1" class="sidebar-icon" />
+                <p>Add Buoy</p>
+               </button>
+            </li>
+            <li>
+                <button class="sidebar-button" onclick=""> 
+                <img src="icon/distanceB2B.png" alt="Feature 1" class="sidebar-icon" />
+                <p>Distance qualcosa</p>
+                </button>
+            </li>
+            <li>
+                <button class="sidebar-button" onclick=> 
+                <img src="icon/fishingFilter.png" alt="Feature 1" class="sidebar-icon" />
+                <p>Filter by</p>
+                </button>
+            </li>
+            <li>
+                <button class="sidebar-button" onclick=> 
+                <img src="icon/settingsRud.png" alt="Feature 1" class="sidebar-icon" />
+                <p>Settings</p>
+                </button>
+            </li>
         </ul>
     </div>
 
         <div id="buoyInfo"  style="display: none;">
-                <p id="buoyId" ></p>
-                <p>Longitude: <span id="lat" > </p>
-                <p>Latitude: <span id="long" ></p>
+            <button id="close-button" onclick="hideBuoyInfo()">
+                <img src="close-button.png" alt="Close" />
+            </button>
+                <h1>buoy id: <span id="buoyId" ></h1>
+                <img id="buoy-img" src="stationary_buoy.jpg" alt="buoy image" />
+                <div id="latlong-div">
+                    <p>Longitude: <span id="lat" > </p>
+                    <p>Latitude: <span id="long" ></p> 
+                    <p>State: Online</p>  
+                </div>
         </div>
         
     </div>
