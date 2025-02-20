@@ -7,8 +7,29 @@ function enableSelection() {
     const c1= getCoordById(id1)
     const c2=getCoordById(id2)
  
-    distance= distanceCalculation(c1,c2)
+    distance= distanceCalculation(c1,c2).toFixed(5)
+    drawDistanceLine(c1,c2,distance)
     alert(distance)
+}
+
+function drawDistanceLine(c1,c2,d)
+{   
+    console.log("im drawing bae")
+    let latlngs= [c1,c2]
+    var distline = L.polyline(latlngs, {
+        color: 'red', // puoi scegliere il colore della linea
+        weight: 3,     // spessore della linea
+        dashArray: '5, 5'
+    }).addTo(map);
+
+  
+    L.marker(latlngs[Math.floor(latlngs.length / 2)], { // Posiziona il marker al centro della linea
+        icon: L.divIcon({
+            className: 'text-label', // Classe CSS personalizzata
+            html: d + ' km', // Testo della distanza
+            iconSize: [100, 30] // Dimensioni dell'icona
+        })
+    }).addTo(map);
 }
 
 function getCoordById(idBuoy)
