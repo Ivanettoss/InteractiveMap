@@ -6,8 +6,9 @@ function enableSelection() {
 
     const c1= getCoordById(id1)
     const c2=getCoordById(id2)
- 
-    distance= distanceCalculation(c1,c2).toFixed(5)
+    console.log(c1)
+    console.log(c2)
+    let distance= distanceCalculation(c1,c2).toFixed(5)
     drawDistanceLine(c1,c2,distance)
     alert(distance)
 }
@@ -22,15 +23,52 @@ function drawDistanceLine(c1,c2,d)
         dashArray: '5, 5'
     }).addTo(map);
 
-  
-    L.marker(latlngs[Math.floor(latlngs.length / 2)], { // Posiziona il marker al centro della linea
+    var midLat = (c1.lat + c2.lat) / 2;
+    var midLng = (c1.lng + c2.lng) / 2;
+    var midPoint = L.latLng(midLat, midLng);
+    console.log("mo te do er mid")
+    console.log(midPoint)
+
+    markerKm=L.marker(midPoint, { // Posiziona il marker al centro della linea
         icon: L.divIcon({
-            className: 'text-label', // Classe CSS personalizzata
-            html: d + ' km', // Testo della distanza
+            className: 'text-line', // Classe CSS personalizzata
+            html: `
+            <div>
+                <span>${d} km</span>
+                <button class="popup-close-button" >
+                    <img src="close-button.png" alt="Close" />
+                </button>
+            </div>
+        `,
+           
             iconSize: [100, 30] // Dimensioni dell'icona
         })
     }).addTo(map);
+
+            const closeButton = markerKm._icon.querySelector('.popup-close-button'); 
+            if (closeButton) {
+                console.log("Close button found");
+                
+                // Associa l'evento click
+                closeButton.addEventListener('click', function() {
+                    console.log("Close button clicked");
+                    removeLine(markerKm, distline);  // Rimuovi il marker e la linea
+                });
+            } else {
+                console.log("Close button not found");
+            }
 }
+
+
+
+
+// Funzione per rimuovere la linea e il marker
+function removeLine(marker,distline) {
+    console.log("delete")
+    marker.remove();  // Rimuove il marker dalla mappa
+    distline.remove(); // Se hai una variabile distline per la linea
+}
+
 
 function getCoordById(idBuoy)
 {

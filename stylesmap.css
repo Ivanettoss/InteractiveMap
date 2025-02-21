@@ -188,7 +188,38 @@ font-size:16px;
 
 
 
-
+.text-line{
+   
+        background-color: rgba(245, 245, 245, 0.9);
+        color: rgb(42, 121, 103);               /* Colore del testo */
+        font-size: 13px;            /* Dimensione del font */
+        text-align: center;         /* Allineamento del testo al centro */
+        line-height: 30px;          /* Centrare verticalmente il testo (altro metodo per allineare al centro) */
+        padding: 2px 5px;          /* Spaziatura interna */
+        border-radius: 10px;        /* Bordi arrotondati */
+        box-shadow: 2px 2px 8px rgba(46, 65, 192, 0.3); /* Ombra leggera intorno */
+        font-weight: bold;          /* Testo in grassetto */
+    
+    
+}
 
     
-     
+
+.popup-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none; /* Rimuove il background del bottone */
+    border: none; /* Rimuove il bordo del bottone */
+    padding:0;
+    cursor: pointer;
+}
+
+.popup-close-button img {
+    width: 10px; /* Imposta una larghezza per l'icona */
+    height: 10px; /* Imposta un'altezza per l'icona */
+}
+
+.popup-close-button:hover img {
+    opacity: 0.7; /* Effetto hover sull'icona (ad esempio cambia l'opacità) */
+}
