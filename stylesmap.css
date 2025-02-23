@@ -223,3 +223,41 @@ font-size:16px;
 .popup-close-button:hover img {
     opacity: 0.7; /* Effetto hover sull'icona (ad esempio cambia l'opacità) */
 }
+
+
+
+#top-bar {
+    position: fixed;
+    bottom: 20px;        
+    left: 50%;       
+    transform: translateX(-50%);
+    z-index: 3;    /* Assicura che la top bar sia visibile sopra gli altri elementi */
+    padding: 10px;
+}
+
+#simulation-butt {
+    background-color: #eba937;  /* Colore verde per il bottone */
+    border: none;
+    color: rgb(42, 121, 103);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+#simulation-butt:hover {
+    scale: 1.3;
+}
+
+#distance-p{
+    background-color: antiquewhite;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+#distance-live{
+    color: #3359ef;
+}

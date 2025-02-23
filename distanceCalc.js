@@ -1,19 +1,23 @@
+let markLine={}
 
 function enableSelection() {
 
     const id1 = prompt("Insert the first buoy id ");
     const id2 = prompt("insert the second buoy id");
 
+    let coupleId= id1 + '-' + id2
+
     const c1= getCoordById(id1)
     const c2=getCoordById(id2)
+    console.log("ora stampo C1 e C2")
     console.log(c1)
     console.log(c2)
     let distance= distanceCalculation(c1,c2).toFixed(5)
-    drawDistanceLine(c1,c2,distance)
+    drawDistanceLine(c1,c2,distance,coupleId)
     alert(distance)
 }
 
-function drawDistanceLine(c1,c2,d)
+function drawDistanceLine(c1,c2,d,cId)
 {   
     console.log("im drawing bae")
     let latlngs= [c1,c2]
@@ -22,6 +26,7 @@ function drawDistanceLine(c1,c2,d)
         weight: 3,     // spessore della linea
         dashArray: '5, 5'
     }).addTo(map);
+
 
     var midLat = (c1.lat + c2.lat) / 2;
     var midLng = (c1.lng + c2.lng) / 2;
@@ -45,6 +50,11 @@ function drawDistanceLine(c1,c2,d)
         })
     }).addTo(map);
 
+
+    markLine[cId] = {
+        marker: markerKm,
+        line: distline
+    };
             const closeButton = markerKm._icon.querySelector('.popup-close-button'); 
             if (closeButton) {
                 console.log("Close button found");
@@ -52,7 +62,7 @@ function drawDistanceLine(c1,c2,d)
                 // Associa l'evento click
                 closeButton.addEventListener('click', function() {
                     console.log("Close button clicked");
-                    removeLine(markerKm, distline);  // Rimuovi il marker e la linea
+                    removeLine(cId);  // Rimuovi il marker e la linea
                 });
             } else {
                 console.log("Close button not found");
@@ -63,10 +73,16 @@ function drawDistanceLine(c1,c2,d)
 
 
 // Funzione per rimuovere la linea e il marker
-function removeLine(marker,distline) {
+function removeLine(cId) {
     console.log("delete")
-    marker.remove();  // Rimuove il marker dalla mappa
-    distline.remove(); // Se hai una variabile distline per la linea
+
+    let coupleToRemove = markLine[cId]
+
+    map.removeLayer(coupleToRemove.marker);
+    map.removeLayer(coupleToRemove.line); 
+
+    delete markLine[cId]
+
 }
 
 
