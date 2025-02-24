@@ -246,6 +246,7 @@ font-size:16px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 15px;
+    font-weight: bold;
 }
 
 #simulation-butt:hover {
@@ -261,3 +262,17 @@ font-size:16px;
 #distance-live{
     color: #3359ef;
 }
+
+#filter-dropdown{
+    z-index: 2;
+    padding: 10px;
+    position: absolute;  /* Si posiziona sotto al bottone */
+    z-index: 3;
+    left:20px;
+    cursor:pointer
+}
+
+#filter-dropdown p:hover {
+    scale:1.3;
+}
+

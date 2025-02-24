@@ -82,7 +82,6 @@ function animateTitanic(marker1,marker2) {
             currentStep++;
         } else {
 
-            // Fermiamo l'animazione quando raggiungiamo la posizione finale
             clearInterval(animationInterval);
             console.log('Titanic ha raggiunto l\'iceberg!');
         }

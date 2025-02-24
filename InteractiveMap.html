@@ -15,6 +15,8 @@
         <script src="userInteraction.js" ></script>
         <script src="distanceCalc.js" ></script>
        
+        
+       
     
         
     <div id="core">
@@ -35,10 +37,15 @@
                 </button>
             </li>
             <li>
-                <button class="sidebar-button" onclick=> 
+                <button class="sidebar-button" onclick="showFilterDropdown()"> 
                 <img src="icon/fishingFilter.png" alt="Feature 1" class="sidebar-icon" />
                 <p>Filter by</p>
                 </button>
+                <div id="filter-dropdown" style="display: none;">
+                    <p onclick="filterBy('stationary')">Stationary</p>
+                    <p onclick="filterBy('dynamic')">Dynamic</p>
+                    <p onclick="filterReset()">Reset</p>
+                </div>
             </li>
             <li>
                 <button class="sidebar-button" onclick=> 
@@ -65,8 +72,6 @@
         <div id="top-bar">
             <p id='distance-p' style="display:none;"> Distance in km: <span id="distance-live"> </p>
             <button id="simulation-butt" onclick="startSimulation()">Start simulation</button>
-
-
         </div>
 
 
@@ -93,21 +98,24 @@
             color: 'blue',
             fillColor: '#blue',
             radius: 50 ,  // radious of the circle in meters 
-            id:'1'
+            id:'1',
+            class:'stationary'
         }).addTo(map);
 
         var circle2 = L.circle([42.028743, 11.866492 ], {
-            color: 'blue',
-            fillColor: '#blue',
+            color: 'orange',
+            fillColor: 'orange',
             radius: 50, // radius of the circle in meters 
-            id:'2'
+            id:'2',
+            class:'dynamic'
         }).addTo(map);
 
         var circle3 = L.circle([ 42.017101, 11.890186], {
-            color: 'blue',
-            fillColor: '#blue',
+            color: 'orange',
+            fillColor: 'orange',
             radius: 50, // radius of the circle in meters
-            id:'3'
+            id:'3',
+            class:'dynamic'
         }).addTo(map);
 
        window.actualBuoys = 
@@ -177,5 +185,6 @@
     </script>
     <script src="buoyInfo.js"></script>
     <script src="simulation.js"></script>
+    <script src="scripts/filterBuoy.js" ></script>
 </body>
 </html>
