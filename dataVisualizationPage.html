@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Map</title>
+    <link rel="stylesheet" href="styleDataMatrix.css">
+    
+   
+</head>
+<body>
+       
+    
+        <div id="inputCsv">
+            <input type="file" id="csvFile" accept=".csv" />
+            <button id="buttonUpload" onclick="generateMatrix()">Upload</button>
+        </div>
+        
+        <div id="core">
+            <table class="container"></table>
+        </div>
+
+
+<script src="scripts/dataLoading"></script>
+<script src="scripts/dataMatrixManagement.js"></script>
+
+</body>
+</html>
