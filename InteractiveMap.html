@@ -16,12 +16,15 @@
         <script src="assets/scripts/distanceCalc.js" ></script>
        
         
-       
-    
-        
     <div id="core">
     <!-- Map Object -->
     <div id="map"></div>
+    <div id="top-bar">
+
+        <button id="search-butt" onclick="searchGivenPlace()"></button>
+
+    </div>
+
     <div id="sidebar">
         <ul id="sidebar-objects" ul>
             <li>
@@ -69,7 +72,7 @@
                 </div>
         </div>
     
-        <div id="top-bar">
+        <div id="bottom-bar">
             <p id='distance-p' style="display:none;"> Distance in km: <span id="distance-live"> </p>
             <button id="simulation-butt" onclick="startSimulation()">Start simulation</button>
         </div>
