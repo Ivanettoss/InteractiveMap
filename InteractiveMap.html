@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Map</title>
-    <link rel="stylesheet" href="stylesmap.css">
+    <link rel="stylesheet" href="assets/styles/stylesmap.css">
     
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -12,8 +12,8 @@
 </head>
 <body>
         <!-- user buoy creation and info js-->
-        <script src="userInteraction.js" ></script>
-        <script src="distanceCalc.js" ></script>
+        <script src="assets/scripts/userInteraction.js" ></script>
+        <script src="assets/scripts/distanceCalc.js" ></script>
        
         
        
@@ -26,19 +26,19 @@
         <ul id="sidebar-objects" ul>
             <li>
                <button class="sidebar-button" onclick="insertBuoyData()"> 
-                <img src="icon/addBuoy.png" alt="Feature 1" class="sidebar-icon" />
+                <img src="assets/icon/addBuoy.png" alt="Feature 1" class="sidebar-icon" />
                 <p>Add Buoy</p>
                </button>
             </li>
             <li>
                 <button class="sidebar-button" onclick="enableSelection()"> 
-                <img src="icon/distanceB2B.png" alt="Feature 1" class="sidebar-icon" />
+                <img src="assets/icon/distanceB2B.png" alt="Feature 1" class="sidebar-icon" />
                 <p>Distance qualcosa</p>
                 </button>
             </li>
             <li>
                 <button class="sidebar-button" onclick="showFilterDropdown()"> 
-                <img src="icon/fishingFilter.png" alt="Feature 1" class="sidebar-icon" />
+                <img src="assets/icon/fishingFilter.png" alt="Feature 1" class="sidebar-icon" />
                 <p>Filter by</p>
                 </button>
                 <div id="filter-dropdown" style="display: none;">
@@ -49,7 +49,7 @@
             </li>
             <li>
                 <button class="sidebar-button" onclick=> 
-                <img src="icon/settingsRud.png" alt="Feature 1" class="sidebar-icon" />
+                <img src="assets/icon/settingsRud.png" alt="Feature 1" class="sidebar-icon" />
                 <p>Settings</p>
                 </button>
             </li>
@@ -58,10 +58,10 @@
 
         <div id="buoyInfo"  style="display: none;">
             <button id="close-button" onclick="hideBuoyInfo()">
-                <img src="close-button.png" alt="Close" />
+                <img src="assets/icon/close-button.png" alt="Close" />
             </button>
                 <h1>buoy id: <span id="buoyId" ></h1>
-                <img id="buoy-img" src="stationary_buoy.jpg" alt="buoy image" />
+                <img id="buoy-img" src="assets/icon/stationary_buoy.jpg" alt="buoy image" />
                 <div id="latlong-div">
                     <p>Longitude: <span id="lat" > </p>
                     <p>Latitude: <span id="long" ></p> 
@@ -183,8 +183,8 @@
 
 
     </script>
-    <script src="buoyInfo.js"></script>
-    <script src="simulation.js"></script>
-    <script src="scripts/filterBuoy.js" ></script>
+    <script src="assets/scripts/buoyInfo.js"></script>
+    <script src="assets/scripts/simulation.js"></script>
+    <script src="assets/scripts/filterBuoy.js" ></script>
 </body>
 </html>

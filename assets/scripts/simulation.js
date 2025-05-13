@@ -3,7 +3,7 @@
 function startSimulation(){
 
     var titanic = L.icon({
-        iconUrl: 'icon/ship.png',
+        iconUrl: 'assets/icon/ship.png',
         iconSize: [60, 55],
         iconAnchor: [0, 0],
         popupAnchor: [0, 0],
@@ -25,7 +25,7 @@ function startSimulation(){
 
 
     var iceberg = L.icon({
-        iconUrl: 'icon/iceberg.png',
+        iconUrl: 'assets/icon/iceberg.png',
         iconSize: [40, 35],
         iconAnchor: [0, 0],
         popupAnchor: [0, 0],
@@ -61,7 +61,7 @@ function animateTitanic(marker1,marker2) {
     var startLatLng = marker1.getLatLng();  // Posizione di partenza
     var endLatLng = marker2.getLatLng();    // Posizione di arrivo
 
-    // Calcola il numero di passi per il movimento (per esempio, 100 passi)
+    // Calcola il numero di passiassets/scripts/ per il movimento (per esempio, 100 passi)
 
     var steps = 100;
     var stepLat = (endLatLng.lat - startLatLng.lat) / steps;

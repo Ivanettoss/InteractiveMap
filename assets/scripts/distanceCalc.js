@@ -41,7 +41,7 @@ function drawDistanceLine(c1,c2,d,cId)
             <div>
                 <span>${d} km</span>
                 <button class="popup-close-button" >
-                    <img src="close-button.png" alt="Close" />
+                    <img src="assets/icon/close-button.png" alt="Close" />
                 </button>
             </div>
         `,
