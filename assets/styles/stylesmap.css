@@ -311,7 +311,7 @@ font-size:16px;
 
 
   #search-butt{
-    background-image: url("assets/icon/compass.png"); /* URL dell'immagine */
+background-image: url('assets/images/compass.png'); /* URL dell'immagine */
   background-size: cover; /* L'immagine copre l'intero pulsante */
   width: 35px; /* Imposta la larghezza */
   height: 35px; /* Imposta l'altezza */
