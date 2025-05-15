@@ -311,7 +311,6 @@ font-size:16px;
 
 
   #search-butt{
-background-image: url('assets/images/compass.png'); /* URL dell'immagine */
   background-size: cover; /* L'immagine copre l'intero pulsante */
   width: 35px; /* Imposta la larghezza */
   height: 35px; /* Imposta l'altezza */
@@ -323,4 +322,14 @@ background-image: url('assets/images/compass.png'); /* URL dell'immagine */
 .search-butt:hover {
   transform: scale(1.5);
 }
+
+#search-butt img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+  }
+  
+  #search-butt img:hover {
+    transform: scale(1.2);
+  }
   
