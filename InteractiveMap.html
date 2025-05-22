@@ -113,27 +113,10 @@
             class:'stationary'
         }).addTo(map);
 
-        var circle2 = L.circle([42.028743, 11.866492 ], {
-            color: 'orange',
-            fillColor: 'orange',
-            radius: 50, // radius of the circle in meters 
-            id:'2',
-            class:'dynamic'
-        }).addTo(map);
-
-        var circle3 = L.circle([ 42.017101, 11.890186], {
-            color: 'orange',
-            fillColor: 'orange',
-            radius: 50, // radius of the circle in meters
-            id:'3',
-            class:'dynamic'
-        }).addTo(map);
-
+     
        window.actualBuoys = 
         {
             '1':circle1,
-            '2':circle2,
-            '3':circle3
         }
 
 
@@ -151,30 +134,7 @@
         map.closePopup(); 
     });
 
-        circle2.on("mouseover", function(e){
-                var latlng = e.latlng;  
-                var popup2 = L.popup()
-                .setLatLng(latlng)   
-                .setContent('Buoy 2')  
-                .openOn(map);       
-        });
-
-        circle2.on("mouseout", function() {
-        map.closePopup(); 
-    });
-
-
-    circle3.on("mouseover", function(e){
-                var latlng = e.latlng;  
-                var popup3 = L.popup()
-                .setLatLng(latlng)
-                .setContent('Buoy 3')  
-                .openOn(map);       
-        });
-
-        circle3.on("mouseout", function() {
-        map.closePopup(); 
-    });
+      
 
     circle1.on("click", function(e) {
             showBuoyInfo(1, e.latlng);
